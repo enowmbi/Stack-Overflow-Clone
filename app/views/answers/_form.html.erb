@@ -1,0 +1,10 @@
+<%= render "layouts/errors", :object => @answer %>
+
+<%= bootstrap_form_for [@question, @answer], remote: true do |f| %>
+  <div class="form-group">
+    <%= f.text_field :description, size: "40x15" %><br>
+  </div>
+  <div class="form-group">
+    <%= f.submit %>
+  </div>
+<% end %>
