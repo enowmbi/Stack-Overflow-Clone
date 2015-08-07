@@ -1,0 +1,13 @@
+
+<div class="row">
+  <div class="col-md-12">
+    <pre class="chapter-text" style="white-space: pre-line;">
+      <%= @answer.description %>
+      <%= link_to "Edit", edit_question_answer_path(@question, answer) %> |
+
+      </pre>
+    </div>
+  </div>
+</ul>
+
+<p><%= link_to "Return to Post", question_path(@question) %></p>

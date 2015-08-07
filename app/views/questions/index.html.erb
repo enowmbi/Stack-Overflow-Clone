@@ -1,0 +1,9 @@
+<h1>Stack Clone Questions</h1>
+<p>
+  <%= link_to "Add a new question", new_question_path %>
+</p>
+<ul>
+  <% @questions.each do |question| %>
+  <li><%= link_to question.description, question_path(question) %></li>
+  <% end %>
+</ul>

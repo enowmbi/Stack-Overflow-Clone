@@ -1,0 +1,35 @@
+<% content_for(:description, "Stack Clone | Question") %>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1><%= @question.description %></h1>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <% if @question.answers.any? %>
+
+    <h4>Here are the answers for this question:</h4>
+    <ul id="answers">
+      <li><%= render @question.answers %></li>
+
+
+    </ul>
+  </div>
+</div>
+
+  <% else %>
+<div class="row">
+  <div class="col-md-12 center">
+    <p>There are no answers yet!</p>
+    <% end %>
+
+    <p><%= link_to "Add a answer", new_question_answer_path(@question), id: "new-answer", remote: true %></p>
+    <p><%= link_to "Edit", edit_question_path(@question) %></p>
+    <p><%= link_to "Delete", question_path(@question),
+      :data => {:confirm => "You sure?",
+      :method => "delete"} %></p>
+    <p><%= link_to "Return to Questions", questions_path %></p>
+  </div>
+</div>
