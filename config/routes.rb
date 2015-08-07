@@ -1,19 +1,8 @@
 Rails.application.routes.draw do
-  root :to => 'users#index'
-
-  resources :sessions
-  resources :user_mailer
-
-  resources :users
-
+  devise_for :users
+  root :to => 'questions#index'
+  
   resources :questions do
-  resources :answers
-
-
-    end
-  get "/log-in" => "sessions#new"
-  post "/log-in" => "sessions#create"
-  get "/log-out" => "sessions#destroy", as: :log_out
-
+    resources :answers
   end
 end
