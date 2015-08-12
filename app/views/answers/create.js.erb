@@ -1,0 +1,3 @@
+$("#new-answer").html("<%= escape_javascript(render 'answers/new') %>")
+$("#new-answer").show;
+$('#answers').prepend('<%= j render(@answer) %>');

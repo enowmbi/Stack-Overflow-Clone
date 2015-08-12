@@ -12,12 +12,12 @@
 
     <h4>Here are the answers for this question:</h4>
     <ul id="answers">
-      <li><%= render @question.answers %></li>
-
-
-    </ul>
-  </div>
-</div>
+       <% @question.answers.each do |answer| %>
+       <li>
+         <%= link_to answer.description, question_answers_path(@question, answer) %>
+           <% end %>
+   </div>
+ </div>
 
   <% else %>
 <div class="row">
@@ -25,7 +25,7 @@
     <p>There are no answers yet!</p>
     <% end %>
 
-    <p><%= link_to "Add a answer", new_question_answer_path(@question), id: "new-answer", remote: true %></p>
+    <p><%= link_to "Add a answer", new_question_answer_path(@question) %></p>
     <p><%= link_to "Edit", edit_question_path(@question) %></p>
     <p><%= link_to "Delete", question_path(@question),
       :data => {:confirm => "You sure?",

@@ -1,4 +1,8 @@
 class AnswersController < ApplicationController
+    def index
+      @answer = Answer.all
+    end
+
     def new
       @question = Question.find(params[:question_id])
       @answer = Answer.new
@@ -11,7 +15,7 @@ class AnswersController < ApplicationController
           respond_to do |format|
             format.html do
               flash[:notice] = "Answer Posted"
-              redirect_to question_path(@question)
+              redirect_to questions_path(@question)
             end
             format.js
           end
@@ -50,6 +54,6 @@ class AnswersController < ApplicationController
     end
 
     def answer_params
-      params.require(:answer).permit(:description, :user_id)
+      params.require(:answer).permit(:description, :user_id, :question_id)
     end
   end

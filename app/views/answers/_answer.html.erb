@@ -1,0 +1,9 @@
+<li>
+  <%= @answer.description %>
+
+  <%= link_to "Edit", edit_question_answer_path(@question, answer) %> |
+  <%= link_to "Delete", question_answer_path(@question, answer),
+  :data => {:confirm => "Are you sure?",
+    :method => "delete"} %>
+
+</li>

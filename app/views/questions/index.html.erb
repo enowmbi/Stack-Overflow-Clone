@@ -1,9 +1,25 @@
-<h1>Stack Clone Questions</h1>
-<p>
-  <%= link_to "Add a new question", new_question_path %>
-</p>
-<ul>
-  <% @questions.each do |question| %>
-  <li><%= link_to question.description, question_path(question) %></li>
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>Tucker's Stack-Clone Questions</h1>
+  </div>
+</div>
+
+  <% if @questions.any? %>
+
+    <ul>
+
+      <% @questions.each do |question| %>
+
+        <li>
+        <%= link_to question.description, question_path(question) %>
+        <%= link_to question_path(question) do %><%= question.description %><% end %>
+        </li>
+
+      <% end %>
+
+    </ul>
   <% end %>
-</ul>
+
+    <p><%= link_to "Add a new question", new_question_path %></p>
+    <p><%= link_to "Return to Homepage", users_path(@user) %></p>

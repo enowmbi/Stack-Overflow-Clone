@@ -1,0 +1,6 @@
+
+<ul>
+  <% @answers.each do |answer| %>
+  <li><%= link_to answer.description, question_answers_path(answer) %></li>
+  <% end %>
+</ul>
