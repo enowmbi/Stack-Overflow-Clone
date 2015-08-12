@@ -7,7 +7,6 @@ class QuestionsController < ApplicationController
     end
 
     def new
-      @user = User.find(params[:user_id])
       @question = Question.new
     end
 
@@ -21,6 +20,7 @@ class QuestionsController < ApplicationController
 
     def create
       @question = Question.new(question_params)
+      @question.user_id = current_user.id
       if @question.save
         flash[:notice] = "Posted Sucessfully!!"
         redirect_to questions_path
