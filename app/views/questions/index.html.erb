@@ -6,7 +6,7 @@
 
         <li>
         <%= link_to question.description, question_path(question) %>
-        <%= link_to question_path(question) do %><%= question.description %><% end %>
+        <%= link_to question_path(question) do %><%= question.description %><%= question.datetime %><% end %>
         </li>
 
       <% end %>

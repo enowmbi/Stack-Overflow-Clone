@@ -5,6 +5,9 @@
     <%= f.text_area :description, :rows => 12, :cols => 75  %>
   </div>
   <div class="form-group">
+    <%= f.date_field :created_at %>
+  </div>
+  <div class="form-group">
     <%= f.submit "Submit Your Question" %>
   </div>
 <% end %>
